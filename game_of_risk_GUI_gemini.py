@@ -1,5 +1,7 @@
 """How could this code be improved? Is there any repetitive code?"""
 
+"Test Comment"
+
 from tkinter import *
 from tkinter import messagebox
 import random
