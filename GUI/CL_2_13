@@ -1,0 +1,30 @@
+from tkinter import *
+
+class CheckbuttonsExampleGUI3:
+    def __init__(self, parent):
+        label1 = Label(parent, text = "Stationery requirements")
+        label1.pack()
+        cb_strings = ["1E4 maths book","3B1 Notebook","Blue pen","2B pencil"]
+        self.check_btns = []
+        for i in range(len(cb_strings)): # set up each Checkbutton
+            v = StringVar()
+            self.check_btns.append(Checkbutton(parent, width = 20, variable = v,
+                                               anchor = W, onvalue = cb_strings[i],
+                                               offvalue = "*",
+                                               text = cb_strings[i],
+                                               command = self.display_selections))
+            self.check_btns[i].var = v
+            self.check_btns[i].deselect()
+            self.check_btns[i].pack()
+            
+    def display_selections(self):
+        for i in range(len(self.check_btns)):
+            if self.check_btns[i].var.get() != "*":
+                print(self.check_btns[i].var.get())
+        print( " * * * ")
+
+#main routine
+if __name__ == "__main__":
+    root = Tk()
+    buttons = CheckbuttonsExampleGUI3(root)
+    root.mainloop()
